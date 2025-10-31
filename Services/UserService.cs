@@ -13,13 +13,13 @@ namespace LoginWebMySQL.Services
 
             if (u.Length == 0 || p.Length == 0)
             {
-                mensaje = "<div class='alert alert-warning mt-3'>Escribe usuario y contraseña.</div>";
+                mensaje = "<div class='alert alert-warning mt-3'>Escribe usuario y contrasena.</div>";
                 return false;
             }
 
             if (_repo.UsuarioExiste(u))
             {
-                mensaje = "<div class='alert alert-warning mt-3'>El usuario ya está registrado.</div>";
+                mensaje = "<div class='alert alert-warning mt-3'>El usuario ya esta registrado.</div>";
                 return false;
             }
 

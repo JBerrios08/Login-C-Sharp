@@ -16,7 +16,7 @@
                     <div class="card-body p-4">
                         <div class="text-center mb-4">
                             <div class="d-flex justify-content-center mb-3">
-                                <img src="Content/user.png" alt="Usuario" class="rounded-circle border border-3 border-dark-subtle" width="96" height="96" />
+                                <img src="Content/user2.png" alt="Usuario" class="rounded-circle border border-3 border-dark-subtle" width="96" height="96" />
                             </div>
                             <h1 class="h4 fw-semibold text-white mb-2">
                                 <i class="fa-solid fa-user-plus me-2"></i>Crear una nueva cuenta
