@@ -17,6 +17,10 @@
 
         .contenedor-inicio {
             padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .tarjeta-inicio {
@@ -101,6 +105,42 @@
 </head>
 <body class="bg-body-tertiary">
     <form id="formulario" runat="server">
+        <div class="contenedor-inicio d-flex justify-content-center align-items-center">
+            <div class="tarjeta-inicio card shadow-sm" style="max-width: 420px; width: 100%;">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <div class="avatar-login">
+                            <i class="fa-solid fa-user-lock fa-2x text-primary"></i>
+                        </div>
+                        <h1 class="titulo-inicio h4 mb-2">Bienvenido otra vez</h1>
+                        <p class="text-muted mb-0">Ingresa tus credenciales para continuar.</p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtUsuario" class="form-label">Usuario</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" MaxLength="12" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtContrasena" class="form-label">Clave</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                            <asp:TextBox ID="txtContrasena" runat="server" CssClass="form-control" TextMode="Password" MaxLength="12" />
+                        </div>
+                    </div>
+
+                    <asp:Button ID="btnIngresar" runat="server" Text="Iniciar sesión" CssClass="btn btn-inicio w-100 text-white" OnClick="btnIngresar_Click" />
+                    <div class="text-center mt-3">
+                        <asp:HyperLink ID="lnkRegistro" runat="server" NavigateUrl="~/Register.aspx" CssClass="enlace-registro">¿No tienes cuenta? Regístrate</asp:HyperLink>
+                    </div>
+                    <asp:Literal ID="litMensaje" runat="server" />
                 </div>
             </div>
         </div>
