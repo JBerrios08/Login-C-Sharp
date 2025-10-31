@@ -11,17 +11,17 @@ namespace LoginWebMySQL
 {
 
 
-    public partial class Login
+    public partial class Register
     {
 
         /// <summary>
-        /// Control formulario.
+        /// Control formRegistro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formRegistro;
 
         /// <summary>
         /// Control txtUsuario.
@@ -42,22 +42,22 @@ namespace LoginWebMySQL
         protected global::System.Web.UI.WebControls.TextBox txtContrasena;
 
         /// <summary>
-        /// Control btnIngresar.
+        /// Control btnRegistrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIngresar;
+        protected global::System.Web.UI.WebControls.Button btnRegistrar;
 
         /// <summary>
-        /// Control lnkRegistro.
+        /// Control lnkLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkRegistro;
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogin;
 
         /// <summary>
         /// Control litMensaje.
