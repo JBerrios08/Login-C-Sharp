@@ -99,34 +99,8 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-body-tertiary">
     <form id="formulario" runat="server">
-        <div class="contenedor-inicio d-flex justify-content-center align-items-center">
-            <div class="tarjeta-inicio card shadow-lg" style="max-width: 440px; width: 100%;">
-                <div class="card-body p-5">
-                    <div class="avatar-login">
-                        <img src="Content/user.png" alt="Usuario" />
-                    </div>
-                    <h2 class="titulo-inicio h4 mb-4 text-center">Bienvenido</h2>
-                    <div class="mb-3">
-                        <label for="txtUsuario" class="form-label">Usuario</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            <asp:TextBox ID="txtUsuario" runat="server" CssClass="form-control" MaxLength="12" />
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtContrasena" class="form-label">Clave</label>
-                        <div class="input-group">
-                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                            <asp:TextBox ID="txtContrasena" runat="server" CssClass="form-control" TextMode="Password" MaxLength="12" />
-                        </div>
-                    </div>
-                    <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="btn btn-inicio btn-primary w-100 py-2" OnClick="btnIngresar_Click" />
-                    <div class="text-center mt-4">
-                        <asp:HyperLink ID="lnkRegistro" runat="server" NavigateUrl="~/Register.aspx" CssClass="enlace-registro">¿No tienes cuenta? Regístrate</asp:HyperLink>
-                    </div>
-                    <asp:Literal ID="litMensaje" runat="server" CssClass="alerta-login d-block text-center text-danger" />
                 </div>
             </div>
         </div>
