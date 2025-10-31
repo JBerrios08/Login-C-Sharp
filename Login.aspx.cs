@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using LoginWebMySQL.Services;
 
 namespace LoginWebMySQL
@@ -9,22 +9,19 @@ namespace LoginWebMySQL
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-            }
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            var ok = _userService.RegistrarUsuario(txtUsuario.Text, txtContrasena.Text, out var msg);
-            litMensaje.Text = msg;
-
+            var ok = _userService.ValidarInicioSesion(txtUsuario.Text, txtContrasena.Text, out var msg);
             if (ok)
             {
-                txtUsuario.Text = "";
-                txtContrasena.Text = "";
-                txtUsuario.Focus();
+                litMensaje.Text = string.Empty;
+                Response.Redirect("~/Crud.aspx");
+                return;
             }
+
+            litMensaje.Text = msg;
         }
     }
 }
