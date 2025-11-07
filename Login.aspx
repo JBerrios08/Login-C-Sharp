@@ -55,7 +55,7 @@
                         <asp:Button
                             ID="btnIngresar"
                             runat="server"
-                            Text="Iniciar sesión"
+                            Text="Iniciar sesion"
                             CssClass="btn btn-primary w-100 fw-semibold"
                             OnClick="btnIngresar_Click" />
 
@@ -65,7 +65,7 @@
                                 runat="server"
                                 NavigateUrl="~/Register.aspx"
                                 CssClass="link-light link-underline-opacity-0 link-underline-opacity-100-hover fw-semibold">
-                                <i class="fa-solid fa-user-plus me-2"></i>¿No tienes cuenta? Regístrate
+                                <i class="fa-solid fa-user-plus me-2"></i>No tienes cuenta? Registrate
                             </asp:HyperLink>
                         </div>
 

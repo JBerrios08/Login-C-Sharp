@@ -66,7 +66,7 @@
                                 runat="server"
                                 NavigateUrl="~/Login.aspx"
                                 CssClass="link-light link-underline-opacity-0 link-underline-opacity-100-hover fw-semibold">
-                                <i class="fa-solid fa-right-to-bracket me-2"></i>¿Ya tienes cuenta? Inicia sesión
+                                <i class="fa-solid fa-right-to-bracket me-2"></i>Ya tienes cuenta? Inicia sesion
                             </asp:HyperLink>
                         </div>
 
