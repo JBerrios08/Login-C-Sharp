@@ -16,6 +16,7 @@ namespace LoginWebMySQL
             var ok = _userService.ValidarInicioSesion(txtUsuario.Text, txtContrasena.Text, out var msg);
             if (ok)
             {
+                Session["Usuario"] = txtUsuario.Text.Trim();
                 litMensaje.Text = string.Empty;
                 Response.Redirect("~/Crud.aspx");
                 return;
