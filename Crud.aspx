@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Inventario de Pastelería</title>
+    <title>Inventario de Pasteleria</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/Site.css" rel="stylesheet" />
@@ -12,10 +12,10 @@
         <div class="container py-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
-                    <h1 class="h3 mb-0">Inventario de Pastelería</h1>
+                    <h1 class="h3 mb-0">Inventario de Pasteleria</h1>
                     <asp:Label ID="lblUsuario" runat="server" CssClass="text-muted small"></asp:Label>
                 </div>
-                <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesión" CssClass="btn btn-outline-danger" OnClick="btnCerrarSesion_Click" />
+                <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesion" CssClass="btn btn-outline-danger" OnClick="btnCerrarSesion_Click" />
             </div>
 
             <asp:PlaceHolder ID="phMensajes" runat="server"></asp:PlaceHolder>
@@ -29,10 +29,10 @@
                     <asp:GridView ID="gvProductos" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" DataKeyNames="id" OnRowCommand="gvProductos_RowCommand">
                         <Columns>
                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                            <asp:BoundField DataField="categoria" HeaderText="Categoría" />
+                            <asp:BoundField DataField="categoria" HeaderText="Categoria" />
                             <asp:BoundField DataField="precio" HeaderText="Precio" DataFormatString="{0:C}" />
                             <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
-                            <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
+                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
                                     <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="btn btn-sm btn-outline-secondary me-2" CommandName="Editar" CommandArgument='<%# Eval("id") %>' />
@@ -57,8 +57,8 @@
                             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" />
                         </div>
                         <div class="col-md-6">
-                            <label for="txtCategoria" class="form-label">Categoría</label>
-                            <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control" placeholder="Ej. Pasteles, Postres fríos" />
+                            <label for="txtCategoria" class="form-label">Categoria</label>
+                            <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control" placeholder="Ej. Pasteles, Postres frios" />
                         </div>
                         <div class="col-md-4">
                             <label for="txtPrecio" class="form-label">Precio</label>

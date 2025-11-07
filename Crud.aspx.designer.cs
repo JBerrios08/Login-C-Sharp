@@ -3,7 +3,7 @@
 //     Este código fue generado por una herramienta.
 //
 //     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
-//     se vuelve a generar el código.
+//     se vuelve a generar el código. 
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCerrarSesion;
 
@@ -46,7 +46,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phMensajes;
 
@@ -55,7 +55,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNuevo;
 
@@ -64,7 +64,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvProductos;
 
@@ -73,7 +73,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFormulario;
 
@@ -82,7 +82,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloFormulario;
 
@@ -91,7 +91,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfProductoId;
 
@@ -100,7 +100,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
@@ -109,7 +109,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCategoria;
 
@@ -118,7 +118,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecio;
 
@@ -127,7 +127,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
 
@@ -136,7 +136,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
@@ -145,7 +145,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
 
@@ -154,7 +154,7 @@ namespace LoginWebMySQL
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del diseñador al archivo de código subyacente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
     }
