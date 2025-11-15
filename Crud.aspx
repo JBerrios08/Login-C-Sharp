@@ -30,6 +30,12 @@
                         <Columns>
                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                             <asp:BoundField DataField="categoria" HeaderText="Categoria" />
+                            <asp:TemplateField HeaderText="Imagen">
+                                <ItemTemplate>
+                                    <asp:Image ID="imgProducto" runat="server" ImageUrl='<%# Eval("imagen_url") %>' CssClass="img-thumbnail" Width="80" Visible='<%# !string.IsNullOrEmpty(Convert.ToString(Eval("imagen_url"))) %>' />
+                                    <asp:Literal ID="litSinImagen" runat="server" Text="Sin imagen" Visible='<%# string.IsNullOrEmpty(Convert.ToString(Eval("imagen_url"))) %>'></asp:Literal>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="precio" HeaderText="Precio" DataFormatString="{0:C}" />
                             <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
                             <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
@@ -67,6 +73,11 @@
                         <div class="col-md-4">
                             <label for="txtCantidad" class="form-label">Cantidad disponible</label>
                             <asp:TextBox ID="txtCantidad" runat="server" CssClass="form-control" placeholder="0" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="txtImagenUrl" class="form-label">URL de la imagen</label>
+                            <asp:TextBox ID="txtImagenUrl" runat="server" CssClass="form-control" placeholder="https://..." />
+                            <small class="text-muted">Debe ser una URL accesible públicamente.</small>
                         </div>
                         <div class="col-12">
                             <label for="txtDescripcion" class="form-label">Descripción</label>
