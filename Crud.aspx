@@ -8,7 +8,7 @@
     <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="formCrud" runat="server" class="bg-light min-vh-100">
+    <form id="formCrud" runat="server" class="bg-light min-vh-100" enctype="multipart/form-data">
         <div class="container py-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div>
@@ -26,10 +26,16 @@
                         <h2 class="h5 mb-0">Productos disponibles</h2>
                         <asp:Button ID="btnNuevo" runat="server" Text="Nuevo producto" CssClass="btn btn-primary" OnClick="btnNuevo_Click" />
                     </div>
-                    <asp:GridView ID="gvProductos" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" DataKeyNames="id" OnRowCommand="gvProductos_RowCommand">
+                    <asp:GridView ID="gvProductos" runat="server" CssClass="table table-striped" AutoGenerateColumns="False" DataKeyNames="id" OnRowCommand="gvProductos_RowCommand" OnRowDataBound="gvProductos_RowDataBound">
                         <Columns>
                             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                             <asp:BoundField DataField="categoria" HeaderText="Categoria" />
+                            <asp:TemplateField HeaderText="Imagen">
+                                <ItemTemplate>
+                                    <asp:Image ID="imgProducto" runat="server" CssClass="img-thumbnail" Width="80" />
+                                    <asp:Literal ID="litSinImagen" runat="server" Text="Sin imagen"></asp:Literal>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:BoundField DataField="precio" HeaderText="Precio" DataFormatString="{0:C}" />
                             <asp:BoundField DataField="cantidad" HeaderText="Cantidad" />
                             <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
@@ -67,6 +73,19 @@
                         <div class="col-md-4">
                             <label for="txtCantidad" class="form-label">Cantidad disponible</label>
                             <asp:TextBox ID="txtCantidad" runat="server" CssClass="form-control" placeholder="0" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fuImagen" class="form-label">Imagen del producto</label>
+                            <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" accept="image/jpeg,image/png,image/gif" />
+                            <asp:Panel ID="pnlVistaPrevia" runat="server" CssClass="mt-2" Visible="false">
+                                <span class="text-muted small d-block">Imagen actual:</span>
+                                <asp:Image ID="imgVistaPrevia" runat="server" CssClass="img-thumbnail" Width="120" />
+                            </asp:Panel>
+                            <div class="form-check mt-2">
+                                <asp:CheckBox ID="chkEliminarImagen" runat="server" CssClass="form-check-input" />
+                                <asp:Label ID="lblEliminarImagen" runat="server" AssociatedControlID="chkEliminarImagen" CssClass="form-check-label">Eliminar imagen actual</asp:Label>
+                            </div>
+                            <small class="text-muted d-block">Formatos permitidos: JPG, PNG o GIF.</small>
                         </div>
                         <div class="col-12">
                             <label for="txtDescripcion" class="form-label">Descripción</label>

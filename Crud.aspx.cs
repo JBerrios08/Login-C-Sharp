@@ -1,4 +1,8 @@
 using System;
+using System.Data;
+using System.IO;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 using LoginWebMySQL.Services;
 
 namespace LoginWebMySQL
@@ -35,6 +39,8 @@ namespace LoginWebMySQL
             MostrarFormulario(true);
             LimpiarFormulario();
             tituloFormulario.InnerText = "Agregar producto";
+            chkEliminarImagen.Visible = false;
+            lblEliminarImagen.Visible = false;
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -46,9 +52,54 @@ namespace LoginWebMySQL
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            var ok = _productoService.GuardarProducto(hfProductoId.Value, txtNombre.Text, txtCategoria.Text, txtDescripcion.Text, txtPrecio.Text, txtCantidad.Text, out var mensaje);
             phMensajes.Controls.Clear();
-            phMensajes.Controls.Add(new System.Web.UI.LiteralControl(mensaje));
+
+            byte[] imagenBytes = null;
+            string contentType = null;
+            var actualizarImagen = false;
+            var eliminarImagen = chkEliminarImagen.Visible && chkEliminarImagen.Checked;
+
+            if (fuImagen.HasFile)
+            {
+                var extension = Path.GetExtension(fuImagen.FileName)?.ToLowerInvariant();
+                var tipoArchivo = fuImagen.PostedFile?.ContentType?.ToLowerInvariant();
+                var extensionesPermitidas = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+
+                if (string.IsNullOrEmpty(extension) || Array.IndexOf(extensionesPermitidas, extension) < 0 || string.IsNullOrEmpty(tipoArchivo) || !tipoArchivo.StartsWith("image/", StringComparison.Ordinal))
+                {
+                    phMensajes.Controls.Add(new LiteralControl("<div class='alert alert-warning'>Selecciona una imagen válida en formato JPG, PNG o GIF.</div>"));
+                    return;
+                }
+
+                using (var reader = new BinaryReader(fuImagen.PostedFile.InputStream))
+                {
+                    imagenBytes = reader.ReadBytes(fuImagen.PostedFile.ContentLength);
+                }
+
+                if (imagenBytes == null || imagenBytes.Length == 0)
+                {
+                    phMensajes.Controls.Add(new LiteralControl("<div class='alert alert-warning'>El archivo de imagen está vacío.</div>"));
+                    return;
+                }
+
+                contentType = tipoArchivo;
+                actualizarImagen = true;
+                eliminarImagen = false;
+            }
+
+            var ok = _productoService.GuardarProducto(
+                hfProductoId.Value,
+                txtNombre.Text,
+                txtCategoria.Text,
+                txtDescripcion.Text,
+                txtPrecio.Text,
+                txtCantidad.Text,
+                imagenBytes,
+                contentType,
+                actualizarImagen,
+                eliminarImagen,
+                out var mensaje);
+            phMensajes.Controls.Add(new LiteralControl(mensaje));
 
             if (ok)
             {
@@ -74,6 +125,11 @@ namespace LoginWebMySQL
                         txtPrecio.Text = producto.Precio.ToString("0.00");
                         txtCantidad.Text = producto.Cantidad.ToString();
                         tituloFormulario.InnerText = "Editar producto";
+                        MostrarImagenActual(producto.Imagen, producto.ImagenContentType);
+                        chkEliminarImagen.Checked = false;
+                        var tieneImagen = producto.Imagen != null && producto.Imagen.Length > 0;
+                        chkEliminarImagen.Visible = tieneImagen;
+                        lblEliminarImagen.Visible = tieneImagen;
                         MostrarFormulario(true);
                     }
                 }
@@ -99,6 +155,50 @@ namespace LoginWebMySQL
             Response.Redirect("Login.aspx");
         }
 
+        protected void gvProductos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType != DataControlRowType.DataRow)
+            {
+                return;
+            }
+
+            if (e.Row.DataItem is DataRowView dataRow)
+            {
+                var img = e.Row.FindControl("imgProducto") as Image;
+                var litSinImagen = e.Row.FindControl("litSinImagen") as Literal;
+
+                var bytes = dataRow["imagen"] as byte[];
+                var tipo = dataRow["imagen_content_type"] as string;
+
+                if (bytes != null && bytes.Length > 0 && !string.IsNullOrWhiteSpace(tipo))
+                {
+                    var base64 = Convert.ToBase64String(bytes);
+                    if (img != null)
+                    {
+                        img.ImageUrl = $"data:{tipo};base64,{base64}";
+                        img.Visible = true;
+                    }
+
+                    if (litSinImagen != null)
+                    {
+                        litSinImagen.Visible = false;
+                    }
+                }
+                else
+                {
+                    if (img != null)
+                    {
+                        img.Visible = false;
+                    }
+
+                    if (litSinImagen != null)
+                    {
+                        litSinImagen.Visible = true;
+                    }
+                }
+            }
+        }
+
         private void MostrarFormulario(bool mostrar)
         {
             pnlFormulario.Visible = mostrar;
@@ -112,6 +212,25 @@ namespace LoginWebMySQL
             txtDescripcion.Text = string.Empty;
             txtPrecio.Text = string.Empty;
             txtCantidad.Text = string.Empty;
+            MostrarImagenActual(null, null);
+            chkEliminarImagen.Checked = false;
+            chkEliminarImagen.Visible = false;
+            lblEliminarImagen.Visible = false;
+        }
+
+        private void MostrarImagenActual(byte[] imagen, string contentType)
+        {
+            if (imagen != null && imagen.Length > 0 && !string.IsNullOrWhiteSpace(contentType))
+            {
+                pnlVistaPrevia.Visible = true;
+                var base64 = Convert.ToBase64String(imagen);
+                imgVistaPrevia.ImageUrl = $"data:{contentType};base64,{base64}";
+            }
+            else
+            {
+                pnlVistaPrevia.Visible = false;
+                imgVistaPrevia.ImageUrl = string.Empty;
+            }
         }
     }
 }
