@@ -20,7 +20,18 @@ namespace LoginWebMySQL.Services
             return _repo.ObtenerProducto(id);
         }
 
-        public bool GuardarProducto(string idTexto, string nombre, string categoria, string descripcion, string precioTexto, string cantidadTexto, string imagenUrl, out string mensaje)
+        public bool GuardarProducto(
+            string idTexto,
+            string nombre,
+            string categoria,
+            string descripcion,
+            string precioTexto,
+            string cantidadTexto,
+            byte[] imagen,
+            string imagenContentType,
+            bool actualizarImagen,
+            bool eliminarImagen,
+            out string mensaje)
         {
             var nombreLimpio = (nombre ?? string.Empty).Trim();
             var categoriaLimpia = (categoria ?? string.Empty).Trim();
@@ -62,14 +73,15 @@ namespace LoginWebMySQL.Services
                 Descripcion = descripcionLimpia,
                 Precio = precio,
                 Cantidad = cantidad,
-                ImagenUrl = imagenUrlLimpia
+                Imagen = imagen,
+                ImagenContentType = imagenContentType
             };
 
             var esActualizacion = int.TryParse(idTexto, out var id) && id > 0;
             if (esActualizacion)
             {
                 producto.Id = id;
-                var ok = _repo.ActualizarProducto(producto);
+                var ok = _repo.ActualizarProducto(producto, actualizarImagen, eliminarImagen);
                 mensaje = ok
                     ? "<div class='alert alert-success'>Producto actualizado correctamente.</div>"
                     : "<div class='alert alert-danger'>No se pudo actualizar el producto.</div>";
