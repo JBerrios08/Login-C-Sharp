@@ -38,6 +38,7 @@ namespace LoginWebMySQL.Services
             var descripcionLimpia = (descripcion ?? string.Empty).Trim();
             var precioLimpio = (precioTexto ?? string.Empty).Trim();
             var cantidadLimpia = (cantidadTexto ?? string.Empty).Trim();
+            var imagenUrlLimpia = (imagenUrl ?? string.Empty).Trim();
 
             if (nombreLimpio.Length == 0)
             {

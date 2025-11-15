@@ -124,6 +124,7 @@ namespace LoginWebMySQL
                         txtDescripcion.Text = producto.Descripcion;
                         txtPrecio.Text = producto.Precio.ToString("0.00");
                         txtCantidad.Text = producto.Cantidad.ToString();
+                        txtImagenUrl.Text = producto.ImagenUrl;
                         tituloFormulario.InnerText = "Editar producto";
                         MostrarImagenActual(producto.Imagen, producto.ImagenContentType);
                         chkEliminarImagen.Checked = false;
