@@ -20,13 +20,14 @@ namespace LoginWebMySQL.Services
             return _repo.ObtenerProducto(id);
         }
 
-        public bool GuardarProducto(string idTexto, string nombre, string categoria, string descripcion, string precioTexto, string cantidadTexto, out string mensaje)
+        public bool GuardarProducto(string idTexto, string nombre, string categoria, string descripcion, string precioTexto, string cantidadTexto, string imagenUrl, out string mensaje)
         {
             var nombreLimpio = (nombre ?? string.Empty).Trim();
             var categoriaLimpia = (categoria ?? string.Empty).Trim();
             var descripcionLimpia = (descripcion ?? string.Empty).Trim();
             var precioLimpio = (precioTexto ?? string.Empty).Trim();
             var cantidadLimpia = (cantidadTexto ?? string.Empty).Trim();
+            var imagenUrlLimpia = (imagenUrl ?? string.Empty).Trim();
 
             if (nombreLimpio.Length == 0)
             {
@@ -60,7 +61,8 @@ namespace LoginWebMySQL.Services
                 Categoria = categoriaLimpia,
                 Descripcion = descripcionLimpia,
                 Precio = precio,
-                Cantidad = cantidad
+                Cantidad = cantidad,
+                ImagenUrl = imagenUrlLimpia
             };
 
             var esActualizacion = int.TryParse(idTexto, out var id) && id > 0;

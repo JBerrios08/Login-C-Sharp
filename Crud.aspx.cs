@@ -46,7 +46,7 @@ namespace LoginWebMySQL
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            var ok = _productoService.GuardarProducto(hfProductoId.Value, txtNombre.Text, txtCategoria.Text, txtDescripcion.Text, txtPrecio.Text, txtCantidad.Text, out var mensaje);
+            var ok = _productoService.GuardarProducto(hfProductoId.Value, txtNombre.Text, txtCategoria.Text, txtDescripcion.Text, txtPrecio.Text, txtCantidad.Text, txtImagenUrl.Text, out var mensaje);
             phMensajes.Controls.Clear();
             phMensajes.Controls.Add(new System.Web.UI.LiteralControl(mensaje));
 
@@ -73,6 +73,7 @@ namespace LoginWebMySQL
                         txtDescripcion.Text = producto.Descripcion;
                         txtPrecio.Text = producto.Precio.ToString("0.00");
                         txtCantidad.Text = producto.Cantidad.ToString();
+                        txtImagenUrl.Text = producto.ImagenUrl;
                         tituloFormulario.InnerText = "Editar producto";
                         MostrarFormulario(true);
                     }
@@ -112,6 +113,7 @@ namespace LoginWebMySQL
             txtDescripcion.Text = string.Empty;
             txtPrecio.Text = string.Empty;
             txtCantidad.Text = string.Empty;
+            txtImagenUrl.Text = string.Empty;
         }
     }
 }
